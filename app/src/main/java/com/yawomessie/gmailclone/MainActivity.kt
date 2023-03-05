@@ -13,9 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.yawomessie.gmailclone.components.GmailDrawerMenu
-import com.yawomessie.gmailclone.components.HomeAppBar
-import com.yawomessie.gmailclone.components.HomeBottomMenu
+import com.yawomessie.gmailclone.components.*
 import com.yawomessie.gmailclone.ui.theme.GmailCloneTheme
 
 class MainActivity : ComponentActivity() {
@@ -58,14 +56,12 @@ fun GmailApp() {
         },
         bottomBar = {
             HomeBottomMenu()
+        },
+        floatingActionButton = {
+            GmailFab()
         }
     ){
-        LazyColumn{
-            items(50){
-                index-> Text(text = "Index @$index")
-                Divider()
-            }
-        }
+      MailList(it)
     }
 }
 
